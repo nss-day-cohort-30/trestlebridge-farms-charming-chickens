@@ -16,6 +16,8 @@ namespace Trestlebridge.Actions {
 
             Console.WriteLine ();
 
+
+
             // How can I output the type of animal chosen here?
             Console.WriteLine ($"Place the animal where?");
 
