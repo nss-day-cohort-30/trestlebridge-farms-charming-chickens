@@ -5,7 +5,7 @@ using Trestlebridge.Models.Plants;
 using Trestlebridge.Models.Facilities;
 
 namespace Trestlebridge.Actions {
-    public class PurchaseStock {
+    public class Purchase {
         public static void CollectInput (Farm farm) {
             Console.WriteLine ("1. Sunflower");
             Console.WriteLine ("2. Sesame");
