@@ -12,11 +12,11 @@ namespace Trestlebridge.Models.Plants
 
         public double Harvest () {
             return _seedsProduced;
-            
+
         }
         public double Poop () {
             return _compostProduced;
-            
+
         }
 
         public override string ToString () {

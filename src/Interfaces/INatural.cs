@@ -1,6 +1,7 @@
 namespace Trestlebridge.Interfaces
 {
-    public interface INatural
-    {
-    }
+public interface INatural
+{
+
+}
 }
