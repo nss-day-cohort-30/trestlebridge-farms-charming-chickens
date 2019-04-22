@@ -7,8 +7,6 @@ namespace Trestlebridge.Models.Animals {
 
         private Guid _id = Guid.NewGuid();
 
-        // the meat produced for chickens is a little confusing so i am going to come back
-        // to this later  -- sam
         private double _meatProduced = 18.25;
 
         private string _shortId {
