@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Trestlebridge.Interfaces;
 
 namespace Trestlebridge.Models.Animals {
-    public class Duck : IMeatProducing {
+    public class Duck : IResource {
 
         private Guid _id = Guid.NewGuid();
 
@@ -12,7 +12,6 @@ namespace Trestlebridge.Models.Animals {
                 return this._id.ToString().Substring(this._id.ToString().Length - 6);
             }
         }
-
         public string Type { get; } = "Duck";
 
         public override string ToString () {
