@@ -3,12 +3,12 @@ using Trestlebridge.Interfaces;
 
 namespace Trestlebridge.Models.Plants
 {
-    public class Wildflower : IResource, ISeedProducing
+    public class Wildflower : IResource, ICompost
     {
         private double _compostProduced = 30.3;
         public string Type { get; } = "Sesame";
 
-        public double Harvest () {
+        public double Poop () {
             return _compostProduced;
         }
 
