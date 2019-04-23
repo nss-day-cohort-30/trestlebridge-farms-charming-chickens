@@ -7,8 +7,6 @@ namespace Trestlebridge.Models.Animals {
 
         private Guid _id = Guid.NewGuid();
 
-        // the meat produced for chickens is a little confusing so i am going to come back
-        // to this later  -- sam
         private double _meatProduced = 18.25;
 
         private string _shortId {
@@ -19,11 +17,6 @@ namespace Trestlebridge.Models.Animals {
 
         // public double GrassPerDay { get; set; } = 5.4;
         public string Type { get; } = "Chicken";
-
-        // Methods
-        // public void Graze () {
-        //     Console.WriteLine($"Cow {this._shortId} just ate {this.GrassPerDay}kg of grass");
-        // }
 
         public double Butcher () {
             return _meatProduced;

@@ -22,6 +22,8 @@ namespace Trestlebridge.Models.Facilities {
         {
             if (_animals.Count < _capacity) {
                 _animals.Add(animal);
+            } else {
+
             }
         }
 

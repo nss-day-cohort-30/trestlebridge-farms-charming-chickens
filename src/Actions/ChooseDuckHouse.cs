@@ -20,9 +20,16 @@ namespace Trestlebridge.Actions {
             Console.WriteLine ($"Place the animal where?");
 
             Console.Write ("> ");
-            int choice = Int32.Parse(Console.ReadLine ()) -1;
+            try
+                {
+                    int choice = Int32.Parse(Console.ReadLine ()) -1;
+                    farm.DuckHouses[choice].AddResource(animal);
+                }
+            catch (ArgumentOutOfRangeException ex)
+                {
 
-            farm.DuckHouses[choice].AddResource(animal);
+                }
+
 
             /*
                 Couldn't get this to work. Can you?
