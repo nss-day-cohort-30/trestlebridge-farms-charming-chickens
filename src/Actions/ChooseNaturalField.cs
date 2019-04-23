@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Trestlebridge.Interfaces;
 using Trestlebridge.Models;
+using Trestlebridge.Models.Facilities;
 using Trestlebridge.Models.Plants;
 
 namespace Trestlebridge.Actions {
@@ -24,7 +25,8 @@ namespace Trestlebridge.Actions {
 
             for (int i = 0; i < farm.NaturalFields.Count; i++)
             {
-                Console.WriteLine ($"{i + 1}. Natural Field");
+                NaturalField specificField = farm.NaturalFields[i];
+                Console.WriteLine ($"{i + 1}. {specificField}");
             }
 
             Console.WriteLine ();

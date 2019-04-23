@@ -2,6 +2,7 @@ using System;
 using System.Linq;
 using Trestlebridge.Interfaces;
 using Trestlebridge.Models;
+using Trestlebridge.Models.Facilities;
 using Trestlebridge.Models.Animals;
 
 namespace Trestlebridge.Actions
@@ -14,7 +15,8 @@ namespace Trestlebridge.Actions
 
             for (int i = 0; i < farm.DuckHouses.Count; i++)
             {
-                Console.WriteLine($"{i + 1}. Duck house");
+                DuckHouse specificHouse = farm.DuckHouses[i];
+                Console.WriteLine($"{i + 1}. {specificHouse}");
             }
 
             Console.WriteLine();
