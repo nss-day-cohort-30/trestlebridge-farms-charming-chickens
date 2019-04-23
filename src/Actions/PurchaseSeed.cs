@@ -12,10 +12,9 @@ namespace Trestlebridge.Actions {
             Console.WriteLine ("3. Wildflower");
 
             Console.WriteLine ();
-            // README code
+
             Console.WriteLine ("Choose which seed to purchase.");
-            // Old code
-            // Console.WriteLine ("What are you buying today?");
+
 
             Console.Write ("> ");
             string choice = Console.ReadLine ();

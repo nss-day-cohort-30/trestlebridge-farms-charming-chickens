@@ -27,9 +27,9 @@ namespace Trestlebridge.Actions {
                     farm.ChickenHouses[choice].AddResource(animal);
                 }
             catch (ArgumentOutOfRangeException ex)
-            {
-
-            }
+                {
+                    Console.WriteLine(ex);
+                }
 
 
             /*

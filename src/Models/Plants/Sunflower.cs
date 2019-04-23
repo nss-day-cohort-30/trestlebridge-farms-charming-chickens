@@ -20,7 +20,7 @@ namespace Trestlebridge.Models.Plants
         }
 
         public override string ToString () {
-            return $"Sunflowers (not Post Malone)";
+            return $"Sunflowers";
         }
     }
 }
