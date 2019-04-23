@@ -50,6 +50,7 @@ namespace Trestlebridge
                 {
                     DisplayBanner();
                     PurchaseStock.CollectInput(Trestlebridge);
+
                 }
                 else if (option == "3")
                 {

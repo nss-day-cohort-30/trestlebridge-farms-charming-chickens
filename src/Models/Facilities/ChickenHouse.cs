@@ -27,7 +27,15 @@ namespace Trestlebridge.Models.Facilities
             {
                 _animals.Add(animal);
             }
-           }
+            else if (_animals.Count >= _capacity)
+            {
+                Console.WriteLine($@"
+                This Facility Is At Full Capacity.
+                Press Any Key To Return To Main Menu.");
+                Console.ReadLine();
+
+            }
+        }
 
         public void AddResources(List<IResource> animals)  // TODO: Take out this method for boilerplate
         {
