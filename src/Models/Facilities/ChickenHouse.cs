@@ -27,7 +27,7 @@ namespace Trestlebridge.Models.Facilities
             {
                 _animals.Add(animal);
             }
-                    }
+           }
 
         public void AddResources(List<IResource> animals)  // TODO: Take out this method for boilerplate
         {
@@ -35,6 +35,7 @@ namespace Trestlebridge.Models.Facilities
             {
                 _animals.AddRange(animals);
             }
+
         }
 
         public override string ToString()
