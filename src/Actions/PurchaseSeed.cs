@@ -5,7 +5,7 @@ using Trestlebridge.Models.Plants;
 using Trestlebridge.Models.Facilities;
 
 namespace Trestlebridge.Actions {
-    public class PurchaseSeed {
+    public class Purchase {
         public static void CollectInput (Farm farm) {
             Console.WriteLine ("1. Sunflower");
             Console.WriteLine ("2. Sesame");
@@ -23,7 +23,7 @@ namespace Trestlebridge.Actions {
             switch (Int32.Parse(choice))
             {
                 case 1:
-                    ChooseNaturalField.CollectInput(farm, new Sunflower());
+                    ChooseFieldType.CollectInput(farm, new Sunflower());
                     break;
                 case 2:
                     ChoosePlowedField.CollectInput(farm, new Sesame());
