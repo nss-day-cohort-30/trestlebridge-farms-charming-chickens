@@ -6,7 +6,7 @@ namespace Trestlebridge.Models.Plants
     public class Sunflower : IResource, ICompost, ISeedProducing, IPlowed, INatural
     {
         private int _seedsProduced = 650;
-        private double _compostProduced = 30.3;
+        private double _compostProduced = 21.6;
 
         public string Type { get; } = "Sunflower";
 
