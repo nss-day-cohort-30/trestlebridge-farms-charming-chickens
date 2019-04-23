@@ -27,7 +27,7 @@ namespace Trestlebridge.Models.Facilities
             {
                 _animals.Add(animal);
             }
-        }
+                    }
 
         public void AddResource(List<IResource> animals)  // TODO: Take out this method for boilerplate
         {
