@@ -10,7 +10,8 @@ namespace Trestlebridge.Actions {
             Console.Clear();
 
             Console.WriteLine ($"How many {plant} would you like to purchase?");
-            int numberOfPlants = Int32.Parse(Console.ReadLine ());
+
+                int numberOfPlants = Int32.Parse(Console.ReadLine ());
 
 
             for (int i = 0; i < farm.NaturalFields.Count; i++)
@@ -23,7 +24,7 @@ namespace Trestlebridge.Actions {
 
 
             // How can I output the type of plant chosen here?
-            Console.WriteLine ($"Grow the plant where?");
+            Console.WriteLine ($"Where would you like to plant the {plant}s?");
 
             Console.Write ("> ");
             try
