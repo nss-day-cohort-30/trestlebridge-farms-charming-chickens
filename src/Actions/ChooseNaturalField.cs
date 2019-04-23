@@ -12,9 +12,10 @@ namespace Trestlebridge.Actions {
             Console.Clear();
 
 
-        Console.WriteLine ($"How many {plant}s would you like to purchase?");
+        Console.WriteLine ($"How many {plant} would you like to purchase?");
 
             int input = Int32.Parse(Console.ReadLine ());
+            numberOfPlants.Clear();
             for ( int i = 0; i < input; i++ )
             {
                 numberOfPlants.Add(plant);
@@ -31,7 +32,7 @@ namespace Trestlebridge.Actions {
 
 
             // How can I output the type of plant chosen here?
-            Console.WriteLine ($"Where would you like to plant the {plant}s?");
+            Console.WriteLine ($"Where would you like to plant the {plant}?");
 
             Console.Write ("> ");
             try
@@ -41,6 +42,7 @@ namespace Trestlebridge.Actions {
                 }
             catch (ArgumentOutOfRangeException ex)
                 {
+                    Console.WriteLine(ex);
 
                 }
 

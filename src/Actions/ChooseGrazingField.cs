@@ -30,7 +30,7 @@ namespace Trestlebridge.Actions {
                 }
             catch (ArgumentOutOfRangeException ex)
                 {
-
+                    Console.WriteLine(ex);
                 }
 
 
