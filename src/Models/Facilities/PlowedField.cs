@@ -25,7 +25,7 @@ namespace Trestlebridge.Models.Facilities {
             }
         }
 
-        public void AddResource (List<IPlowed> plants)  // TODO: Take out this method for boilerplate
+        public void AddResources (List<IPlowed> plants)  // TODO: Take out this method for boilerplate
         {
             if (plants.Count + plants.Count <= _capacity) {
                 _plants.AddRange(plants);

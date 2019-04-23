@@ -29,7 +29,7 @@ namespace Trestlebridge.Models.Facilities
             }
         }
 
-        public void AddResource(List<IResource> animals)  // TODO: Take out this method for boilerplate
+        public void AddResources(List<IResource> animals)  // TODO: Take out this method for boilerplate
         {
             if (_animals.Count + animals.Count <= _capacity)
             {
