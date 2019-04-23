@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Trestlebridge.Interfaces;
 using Trestlebridge.Models;
+using Trestlebridge.Models.Facilities;
 using Trestlebridge.Models.Plants;
 
 namespace Trestlebridge.Actions
@@ -27,7 +28,8 @@ namespace Trestlebridge.Actions
 
             for (int i = 0; i < farm.PlowedFields.Count; i++)
             {
-                Console.WriteLine($"{i + 1}. Plowed Field");
+                PlowedField specificField = farm.PlowedFields[i];
+                Console.WriteLine($"{i + 1}. {specificField}");
             }
 
             Console.WriteLine();

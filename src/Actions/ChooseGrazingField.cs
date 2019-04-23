@@ -2,6 +2,7 @@ using System;
 using System.Linq;
 using Trestlebridge.Interfaces;
 using Trestlebridge.Models;
+using Trestlebridge.Models.Facilities;
 using Trestlebridge.Models.Animals;
 
 namespace Trestlebridge.Actions {
@@ -11,7 +12,8 @@ namespace Trestlebridge.Actions {
 
             for (int i = 0; i < farm.GrazingFields.Count; i++)
             {
-                Console.WriteLine ($"{i + 1}. Grazing Field");
+                GrazingField specificField = farm.GrazingFields[i];
+                Console.WriteLine ($"{i + 1}. {specificField}");
             }
 
             Console.WriteLine ();
