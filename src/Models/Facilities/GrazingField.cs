@@ -22,7 +22,13 @@ namespace Trestlebridge.Models.Facilities {
         {
             if (_animals.Count < _capacity) {
                 _animals.Add(animal);
-            } else {
+            }
+             else if (_animals.Count >= _capacity)
+            {
+                Console.WriteLine($@"
+                This Facility Is At Full Capacity.
+                Press Any Key To Return To Main Menu.");
+                Console.ReadLine();
 
             }
         }

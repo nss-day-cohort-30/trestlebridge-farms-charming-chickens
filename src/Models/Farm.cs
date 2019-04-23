@@ -16,7 +16,6 @@ namespace Trestlebridge.Models
         public List<ChickenHouse> ChickenHouses { get; } = new List<ChickenHouse>();
 
 
-
         /*
             This method must specify the correct product interface of the
             resource being purchased.

@@ -23,6 +23,14 @@ namespace Trestlebridge.Models.Facilities {
             if (_plants.Count < _capacity) {
                 _plants.Add(plant);
             }
+             else if (_plants.Count >= _capacity)
+            {
+                Console.WriteLine($@"
+                This Facility Is At Full Capacity.
+                Press Any Key To Return To Main Menu.");
+                Console.ReadLine();
+
+            }
         }
 
         public void AddResources (List<IPlowed> plants)  // TODO: Take out this method for boilerplate
