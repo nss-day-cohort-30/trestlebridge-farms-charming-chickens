@@ -15,6 +15,7 @@ namespace Trestlebridge.Actions {
         Console.WriteLine ($"How many {plant} would you like to purchase?");
 
             int input = Int32.Parse(Console.ReadLine ());
+            numberOfPlants.Clear();
             for ( int i = 0; i < input; i++ )
             {
                 numberOfPlants.Add(plant);
@@ -42,6 +43,7 @@ namespace Trestlebridge.Actions {
             catch (ArgumentOutOfRangeException ex)
                 {
                     Console.WriteLine(ex);
+
                 }
 
 
