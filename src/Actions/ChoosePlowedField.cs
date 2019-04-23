@@ -22,9 +22,17 @@ namespace Trestlebridge.Actions {
             Console.WriteLine ($"Grow the plant where?");
 
             Console.Write ("> ");
-            int choice = Int32.Parse(Console.ReadLine ()) - 1;
 
-            farm.PlowedFields[choice].AddResource(plant);
+            try
+                {
+                    int choice = Int32.Parse(Console.ReadLine ()) - 1;
+                    farm.PlowedFields[choice].AddResource(plant);
+                }
+            catch (ArgumentOutOfRangeException ex)
+                {
+
+                }
+
 
             /*
                 Couldn't get this to work. Can you?
