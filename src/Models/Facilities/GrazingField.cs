@@ -3,9 +3,13 @@ using System.Text;
 using System.Collections.Generic;
 using Trestlebridge.Interfaces;
 using Trestlebridge.Models.Animals;
+using Trestlebridge.Models.HashSets;
+using Trestlebridge.Actions;
+using System.Linq;
 
 
-namespace Trestlebridge.Models.Facilities {
+namespace Trestlebridge.Models.Facilities
+{
     public class GrazingField : IFacility<IGrazing>
     {
         private int _capacity = 20;
@@ -13,18 +17,29 @@ namespace Trestlebridge.Models.Facilities {
 
         private List<IGrazing> _animals = new List<IGrazing>();
 
-        public double Capacity {
-            get {
+        public double Capacity
+        {
+            get
+            {
                 return _capacity;
             }
         }
 
-        public void AddResource (IGrazing animal)
+        public List<IGrazing> Animals
         {
-            if (_animals.Count < _capacity) {
+            get
+            {
+                return _animals;
+            }
+        }
+
+        public void AddResource(IGrazing animal)
+        {
+            if (_animals.Count < _capacity)
+            {
                 _animals.Add(animal);
             }
-             else if (_animals.Count >= _capacity)
+            else if (_animals.Count >= _capacity)
             {
                 Console.WriteLine($@"
                 This Facility Is At Full Capacity.
@@ -34,19 +49,38 @@ namespace Trestlebridge.Models.Facilities {
             }
         }
 
-        public void AddResources (List<IGrazing> animals)  // TODO: Take out this method for boilerplate
+        public void AddResources(List<IGrazing> animals)  // TODO: Take out this method for boilerplate
         {
-            if (_animals.Count + animals.Count <= _capacity) {
+            if (_animals.Count + animals.Count <= _capacity)
+            {
                 _animals.AddRange(animals);
             }
         }
+
 
         public override string ToString()
         {
             StringBuilder output = new StringBuilder();
             string shortId = $"{this._id.ToString().Substring(this._id.ToString().Length - 6)}";
+            if (_animals.Count == 0)
+            {
+                 output.Append($"Grazing field ({_animals.Count} animals)\n");
+            }
 
-            output.Append($"Grazing field ({this._animals.Count} animals)\n");
+            List<TypeCounter> AnimalCount = (
+                from animal in Animals
+                group animal by animal.Type into AnimalType
+                select new TypeCounter {
+                    Type = AnimalType.Key,
+                    Counter = AnimalType.Count()
+                }
+            ).ToList();
+            output.Append($"Grazing field ( ");
+            foreach(TypeCounter animal in AnimalCount)
+            {
+                output.Append($"{animal.Counter} {animal.Type} ");
+            }
+            output.Append($")");
 
             return output.ToString();
         }
