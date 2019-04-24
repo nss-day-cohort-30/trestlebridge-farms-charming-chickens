@@ -3,6 +3,9 @@ using System.Text;
 using System.Collections.Generic;
 using Trestlebridge.Interfaces;
 using Trestlebridge.Models.Animals;
+using Trestlebridge.Models.HashSets;
+using Trestlebridge.Actions;
+using System.Linq;
 
 
 namespace Trestlebridge.Models.Facilities {
@@ -16,6 +19,14 @@ namespace Trestlebridge.Models.Facilities {
         public double Capacity {
             get {
                 return _capacity;
+            }
+        }
+
+        public List<IGrazing> Animals
+        {
+            get
+            {
+                return _animals;
             }
         }
 
@@ -41,14 +52,39 @@ namespace Trestlebridge.Models.Facilities {
             }
         }
 
+
         public override string ToString()
         {
             StringBuilder output = new StringBuilder();
             string shortId = $"{this._id.ToString().Substring(this._id.ToString().Length - 6)}";
 
-            output.Append($"Grazing field ({this._animals.Count} animals)\n");
+            List<TypeCounter> AnimalCount = (
+                from animal in Animals
+                group animal by animal.Type into AnimalType
+                select new TypeCounter {
+                    Type = AnimalType.Key,
+                    Counter = AnimalType.Count()
+                }
+            ).ToList();
+
+            foreach(TypeCounter animal in AnimalCount)
+            {
+                output.Append($"Grazing field ({animal.Counter} {animal.Type})\n");
+            }
+
 
             return output.ToString();
         }
     }
 }
+
+            // List<MoneyinBank> whereTheRich = (
+            //     from customer in millionaires
+            //     group customer by customer.Bank into BankGroup
+            //     select new MoneyinBank {
+            //         Name = BankGroup.Key,
+            //         Count = BankGroup.Count()
+            //     }
+            // ).ToList();
+            // foreach (MoneyinBank entry in whereTheRich) {
+            //     Console.WriteLine($"{entry.Name}: {entry.Count}");
