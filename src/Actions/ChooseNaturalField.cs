@@ -31,9 +31,6 @@ namespace Trestlebridge.Actions {
 
             Console.WriteLine ();
 
-
-
-            // How can I output the type of plant chosen here?
             Console.WriteLine ($"Where would you like to plant the {plant}?");
 
             Console.Write ("> ");
