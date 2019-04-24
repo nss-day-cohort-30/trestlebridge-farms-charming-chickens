@@ -8,7 +8,8 @@ using Trestlebridge.Actions;
 using System.Linq;
 
 
-namespace Trestlebridge.Models.Facilities {
+namespace Trestlebridge.Models.Facilities
+{
     public class GrazingField : IFacility<IGrazing>
     {
         private int _capacity = 20;
@@ -16,8 +17,10 @@ namespace Trestlebridge.Models.Facilities {
 
         private List<IGrazing> _animals = new List<IGrazing>();
 
-        public double Capacity {
-            get {
+        public double Capacity
+        {
+            get
+            {
                 return _capacity;
             }
         }
@@ -30,12 +33,13 @@ namespace Trestlebridge.Models.Facilities {
             }
         }
 
-        public void AddResource (IGrazing animal)
+        public void AddResource(IGrazing animal)
         {
-            if (_animals.Count < _capacity) {
+            if (_animals.Count < _capacity)
+            {
                 _animals.Add(animal);
             }
-             else if (_animals.Count >= _capacity)
+            else if (_animals.Count >= _capacity)
             {
                 Console.WriteLine($@"
                 This Facility Is At Full Capacity.
@@ -45,9 +49,10 @@ namespace Trestlebridge.Models.Facilities {
             }
         }
 
-        public void AddResources (List<IGrazing> animals)  // TODO: Take out this method for boilerplate
+        public void AddResources(List<IGrazing> animals)  // TODO: Take out this method for boilerplate
         {
-            if (_animals.Count + animals.Count <= _capacity) {
+            if (_animals.Count + animals.Count <= _capacity)
+            {
                 _animals.AddRange(animals);
             }
         }
@@ -57,6 +62,10 @@ namespace Trestlebridge.Models.Facilities {
         {
             StringBuilder output = new StringBuilder();
             string shortId = $"{this._id.ToString().Substring(this._id.ToString().Length - 6)}";
+            if (_animals.Count == 0)
+            {
+                 output.Append($"Grazing field ({_animals.Count} animals)\n");
+            }
 
             List<TypeCounter> AnimalCount = (
                 from animal in Animals
@@ -66,25 +75,14 @@ namespace Trestlebridge.Models.Facilities {
                     Counter = AnimalType.Count()
                 }
             ).ToList();
-
+            output.Append($"Grazing field ( ");
             foreach(TypeCounter animal in AnimalCount)
             {
-                output.Append($"Grazing field ({animal.Counter} {animal.Type})\n");
+                output.Append($"{animal.Counter} {animal.Type} ");
             }
-
+            output.Append($")");
 
             return output.ToString();
         }
     }
 }
-
-            // List<MoneyinBank> whereTheRich = (
-            //     from customer in millionaires
-            //     group customer by customer.Bank into BankGroup
-            //     select new MoneyinBank {
-            //         Name = BankGroup.Key,
-            //         Count = BankGroup.Count()
-            //     }
-            // ).ToList();
-            // foreach (MoneyinBank entry in whereTheRich) {
-            //     Console.WriteLine($"{entry.Name}: {entry.Count}");
