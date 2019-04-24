@@ -6,23 +6,19 @@ using Trestlebridge.Models.Facilities;
 
 namespace Trestlebridge.Actions
 {
-    public class PurchaseStock
+    public class Processing
     {
         public static void CollectInput(Farm farm)
         {
-            Console.WriteLine("1. Chicken");
-            Console.WriteLine("2. Cow");
-            Console.WriteLine("3. Duck");
-            Console.WriteLine("4. Goat");
-            Console.WriteLine("5. Ostrich");
-            Console.WriteLine("6. Pig");
-            Console.WriteLine("7. Sheep");
+            Console.WriteLine("1. Seed Harvester");
+            Console.WriteLine("2. Meat Processor");
+            Console.WriteLine("3. Egg Gatherer");
+            Console.WriteLine("4. Composter");
+            Console.WriteLine("5. Feather Harvester");
 
             Console.WriteLine();
-            // README code
-            Console.WriteLine("Choose an animal to purchase.");
-            // Old code
-            // Console.WriteLine ("What are you buying today?");
+
+            Console.WriteLine("Choose equipment to use.");
 
             Console.Write("> ");
             string choice = Console.ReadLine();
