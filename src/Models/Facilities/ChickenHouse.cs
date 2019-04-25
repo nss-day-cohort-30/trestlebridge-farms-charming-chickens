@@ -10,7 +10,7 @@ namespace Trestlebridge.Models.Facilities
 {
     public class ChickenHouse : IFacility<IResource>
     {
-        private int _capacity = 15;
+        private int _capacity = 2;
         private Guid _id = Guid.NewGuid();
 
         private List<IResource> _animals = new List<IResource>();
@@ -71,6 +71,9 @@ namespace Trestlebridge.Models.Facilities
                     Counter = AnimalType.Count()
                 }
             ).ToList();
+
+            // if (Chickens.Count < Capacity)
+            // {
             output.Append($"Chicken house ( ");
             foreach (TypeCounter animal in AnimalCount)
             {
@@ -79,6 +82,11 @@ namespace Trestlebridge.Models.Facilities
             output.Append($")\n");
 
             return output.ToString();
+            // }
+            // else
+            // {
+            //     return "Hello";
+            // }
         }
 
 
