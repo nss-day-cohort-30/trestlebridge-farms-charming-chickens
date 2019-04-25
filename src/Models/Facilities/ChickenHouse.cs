@@ -72,8 +72,6 @@ namespace Trestlebridge.Models.Facilities
                 }
             ).ToList();
 
-            // if (Chickens.Count < Capacity)
-            // {
             output.Append($"Chicken house ( ");
             foreach (TypeCounter animal in AnimalCount)
             {
@@ -82,11 +80,7 @@ namespace Trestlebridge.Models.Facilities
             output.Append($")\n");
 
             return output.ToString();
-            // }
-            // else
-            // {
-            //     return "Hello";
-            // }
+
         }
 
 
