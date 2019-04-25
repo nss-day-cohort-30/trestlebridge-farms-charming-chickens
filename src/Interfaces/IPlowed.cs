@@ -1,6 +1,6 @@
 namespace Trestlebridge.Interfaces
 {
-    public interface IPlowed
+    public interface IPlowed : IResource
     {
 
     }

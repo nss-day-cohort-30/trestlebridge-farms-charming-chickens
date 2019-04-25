@@ -12,7 +12,7 @@ namespace Trestlebridge.Models.Animals {
                 return this._id.ToString().Substring(this._id.ToString().Length - 6);
             }
         }
-        public string Type { get; } = "Ducks";
+        public string Type { get; } = "Duck";
 
         public override string ToString () {
             return $"Duck {this._shortId}. Quack!";

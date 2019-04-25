@@ -26,7 +26,7 @@ namespace Trestlebridge.Models.Animals
             return _meatProduced;
         }
 
-        public string Type { get; } = "Sheeps";
+        public string Type { get; } = "Sheep";
 
         public void Graze()
         {

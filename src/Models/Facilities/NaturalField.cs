@@ -2,6 +2,8 @@ using System;
 using System.Text;
 using System.Collections.Generic;
 using Trestlebridge.Interfaces;
+using Trestlebridge.Models.HashSets;
+using System.Linq;
 
 
 namespace Trestlebridge.Models.Facilities {
@@ -15,6 +17,13 @@ namespace Trestlebridge.Models.Facilities {
         public double Capacity {
             get {
                 return _capacity;
+            }
+        }
+
+        public List<INatural> Flowers {
+            get
+            {
+                return _plant;
             }
         }
 
@@ -45,7 +54,20 @@ namespace Trestlebridge.Models.Facilities {
             StringBuilder output = new StringBuilder();
             string shortId = $"{this._id.ToString().Substring(this._id.ToString().Length - 6)}";
 
-            output.Append($"Natural field ({this._plant.Count} rows of plants)\n");
+            List<TypeCounter> FlowerCount = (
+                from flower in Flowers
+                group flower by flower.Type into FlowerType
+                select new TypeCounter {
+                    Type = FlowerType.Key,
+                    Counter = FlowerType.Count()
+                }
+            ).ToList();
+            output.Append($"Natural field ( ");
+            foreach(TypeCounter flower in FlowerCount)
+            {
+                output.Append($"{flower.Counter} {flower.Type} ");
+            }
+            output.Append($")\n");
 
             return output.ToString();
         }
