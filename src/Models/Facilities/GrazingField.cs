@@ -62,10 +62,6 @@ namespace Trestlebridge.Models.Facilities
         {
             StringBuilder output = new StringBuilder();
             string shortId = $"{this._id.ToString().Substring(this._id.ToString().Length - 6)}";
-            if (_animals.Count == 0)
-            {
-                 output.Append($"Grazing field ({_animals.Count} animals)\n");
-            }
 
             List<TypeCounter> AnimalCount = (
                 from animal in Animals
@@ -80,7 +76,7 @@ namespace Trestlebridge.Models.Facilities
             {
                 output.Append($"{animal.Counter} {animal.Type} ");
             }
-            output.Append($")");
+            output.Append($")\n");
 
             return output.ToString();
         }
