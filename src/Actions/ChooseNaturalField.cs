@@ -25,8 +25,12 @@ namespace Trestlebridge.Actions {
 
             for (int i = 0; i < farm.NaturalFields.Count; i++)
             {
+                if (farm.NaturalFields[i].Flowers.Count < farm.NaturalFields[i].Capacity)
+                {
                 NaturalField specificField = farm.NaturalFields[i];
                 Console.WriteLine ($"{i + 1}. {specificField}");
+
+                }
             }
 
             Console.WriteLine ();

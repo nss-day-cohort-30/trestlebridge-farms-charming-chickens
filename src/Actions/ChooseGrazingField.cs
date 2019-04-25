@@ -12,8 +12,12 @@ namespace Trestlebridge.Actions {
 
             for (int i = 0; i < farm.GrazingFields.Count; i++)
             {
+                if (farm.GrazingFields[i].Animals.Count < farm.GrazingFields[i].Capacity)
+                {
                 GrazingField specificField = farm.GrazingFields[i];
                 Console.WriteLine ($"{i + 1}. {specificField}");
+
+                }
             }
 
             Console.WriteLine ();
