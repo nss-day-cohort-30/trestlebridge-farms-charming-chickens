@@ -10,7 +10,7 @@ namespace Trestlebridge.Models.Facilities
 {
     public class PlowedField : IFacility<IPlowed>
     {
-        private int _capacity = 13;
+        private int _capacity = 2;
         private Guid _id = Guid.NewGuid();
 
         private List<IPlowed> _plant = new List<IPlowed>();
