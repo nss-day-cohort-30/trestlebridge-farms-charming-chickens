@@ -14,7 +14,7 @@ namespace Trestlebridge.Models.Plants
             return _seedsProduced;
 
         }
-        public double Poop () {
+        public double Compost () {
             return _compostProduced;
 
         }

@@ -7,13 +7,15 @@ using Trestlebridge.Models.Facilities;
 namespace Trestlebridge.Models
 {
     public class Farm
-        //added list for each type of field need to create class
+        //added list for each type of field needed to create class
     {
         public List<GrazingField> GrazingFields { get; } = new List<GrazingField>();
         public List<DuckHouse> DuckHouses { get; } = new List<DuckHouse>();
         public List<PlowedField> PlowedFields { get; } = new List<PlowedField>();
         public List<NaturalField> NaturalFields { get; } = new List<NaturalField>();
         public List<ChickenHouse> ChickenHouses { get; } = new List<ChickenHouse>();
+
+
 
 
         /*

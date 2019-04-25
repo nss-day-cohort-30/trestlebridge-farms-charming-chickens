@@ -10,42 +10,33 @@ namespace Trestlebridge.Models.Facilities
 {
     public class ChooseComposter
     {
-        public static void CollectInput(Farm farm, IResource animal)
-        {
-            Console.Clear();
+        // need to group classes in facilities by the interface type ICompost
 
-            for (int i = 0; i < farm.DuckHouses.Count; i++)
-            {
-                if (farm.DuckHouses[i].Ducks.Count < farm.DuckHouses[i].Capacity)
-                {
-                    DuckHouse specificHouse = farm.DuckHouses[i];
-                    Console.WriteLine($"{i + 1}. {specificHouse}");
-                }
-            }
-
-            Console.WriteLine();
-
-            // How can I output the type of animal chosen here?
-            Console.WriteLine($"Place the animal where?");
-
-            Console.Write("> ");
-            try
-            {
-                int choice = Int32.Parse(Console.ReadLine()) - 1;
-                farm.DuckHouses[choice].AddResource(animal);
-            }
-            catch (ArgumentOutOfRangeException ex)
-            {
-                Console.WriteLine(ex);
-            }
+        /*  Steve said to be verbose and loop over facilities that have animals
+            or flowers that can be composted. At that point, console.writeline()
+            or store those items in a new list. Once in that list, you can output them or loop over them or really just kind of whatever.
+        */
+        public List<ICompost> CompostFacilities = new List<ICompost>();
 
 
-            /*
-                Couldn't get this to work. Can you?
-                Stretch goal. Only if the app is fully functional.
-             */
-            // farm.PurchaseResource<IGrazing>(animal, choice);
+    public static void CollectInput(ICompost resource)
+    {
+        Console.Clear();
 
-        }
+
+
+
+
+
+
+
+
+        /*
+            Couldn't get this to work. Can you?
+            Stretch goal. Only if the app is fully functional.
+         */
+        // farm.PurchaseResource<IGrazing>(animal, choice);
+
     }
+}
 }
