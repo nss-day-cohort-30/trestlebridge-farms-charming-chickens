@@ -12,8 +12,11 @@ namespace Trestlebridge.Actions {
 
             for (int i = 0; i < farm.ChickenHouses.Count; i++)
             {
-                ChickenHouse specificHouse = farm.ChickenHouses[i];
-                Console.WriteLine ($"{i + 1}. {specificHouse}");
+                if (farm.ChickenHouses[i].Chickens.Count < farm.ChickenHouses[i].Capacity)
+                {
+                    ChickenHouse specificHouse = farm.ChickenHouses[i];
+                    Console.WriteLine ($"{i + 1}. {specificHouse}");
+                }
             }
 
             Console.WriteLine ();
