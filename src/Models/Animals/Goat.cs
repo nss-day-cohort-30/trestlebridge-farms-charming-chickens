@@ -14,7 +14,7 @@ namespace Trestlebridge.Models.Animals {
         }
 
         public double GrassPerDay { get; set; } = 5.4;
-        public string Type { get; } = "Goat";
+        public string Type { get; } = "Goats";
 
         // Methods
         public void Graze () {

@@ -2,6 +2,8 @@ using System;
 using System.Text;
 using System.Collections.Generic;
 using Trestlebridge.Interfaces;
+using Trestlebridge.Models.HashSets;
+using System.Linq;
 
 
 namespace Trestlebridge.Models.Facilities
@@ -21,13 +23,21 @@ namespace Trestlebridge.Models.Facilities
             }
         }
 
+        public List<IResource> Ducks
+        {
+            get
+            {
+                return _animals;
+            }
+        }
+
         public void AddResource(IResource animal)
         {
             if (_animals.Count < _capacity)
             {
                 _animals.Add(animal);
             }
-             else if (_animals.Count >= _capacity)
+            else if (_animals.Count >= _capacity)
             {
                 Console.WriteLine($@"
                 This Facility Is At Full Capacity.
@@ -49,8 +59,26 @@ namespace Trestlebridge.Models.Facilities
         {
             StringBuilder output = new StringBuilder();
             string shortId = $"{this._id.ToString().Substring(this._id.ToString().Length - 6)}";
+            if (_animals.Count == 0)
+            {
+                output.Append($"Grazing field ({_animals.Count} animals)\n");
+            }
 
-            output.Append($"Duck house ({this._animals.Count} ducks)\n");
+            List<TypeCounter> AnimalCount = (
+                from duck in Ducks
+                group duck by duck.Type into AnimalType
+                select new TypeCounter
+                {
+                    Type = AnimalType.Key,
+                    Counter = AnimalType.Count()
+                }
+            ).ToList();
+            output.Append($"Duck house ( ");
+            foreach (TypeCounter animal in AnimalCount)
+            {
+                output.Append($"{animal.Counter} {animal.Type}s ");
+            }
+            output.Append($")");
 
             return output.ToString();
         }

@@ -2,6 +2,8 @@ using System;
 using System.Text;
 using System.Collections.Generic;
 using Trestlebridge.Interfaces;
+using System.Linq;
+using Trestlebridge.Models.HashSets;
 
 
 namespace Trestlebridge.Models.Facilities
@@ -18,6 +20,14 @@ namespace Trestlebridge.Models.Facilities
             get
             {
                 return _capacity;
+            }
+        }
+
+        public List<IResource> Chickens
+        {
+            get
+            {
+                return _animals;
             }
         }
 
@@ -50,8 +60,26 @@ namespace Trestlebridge.Models.Facilities
         {
             StringBuilder output = new StringBuilder();
             string shortId = $"{this._id.ToString().Substring(this._id.ToString().Length - 6)}";
+            if (_animals.Count == 0)
+            {
+                output.Append($"Grazing field ({_animals.Count} animals)\n");
+            }
 
-            output.Append($"Chicken house ({this._animals.Count} chickens)\n");
+            List<TypeCounter> AnimalCount = (
+                from chicken in Chickens
+                group chicken by chicken.Type into AnimalType
+                select new TypeCounter
+                {
+                    Type = AnimalType.Key,
+                    Counter = AnimalType.Count()
+                }
+            ).ToList();
+            output.Append($"Chicken house ( ");
+            foreach (TypeCounter animal in AnimalCount)
+            {
+                output.Append($"{animal.Counter} {animal.Type} ");
+            }
+            output.Append($")");
 
             return output.ToString();
         }
